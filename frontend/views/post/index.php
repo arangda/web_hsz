@@ -4,6 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ListView;
 use frontend\components\TagsCloudWidget;
 use frontend\components\RctReplyWidget;
+use common\models\Post;
 /* @var $this yii\web\View */
 /* @var $searchModel common\models\PostSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -32,6 +33,15 @@ $this->params['breadcrumbs'][] = ['label' => '文章列表', 'url' => ['index']]
                 <ul class="list-group">
                     <li class="list-group-item">
                         <span class="glyphicon glyphicon-search" aria-hidden="true"></span>查找文章
+                        (<?php
+                        $data = Yii::$app->cache->get('postCount');
+                        if($data === false)
+                        {
+                            $data = Post::find()->count(); sleep(5);
+                            Yii::$app->cache->set('postCount',$data);
+                        }
+                        echo $data;
+                        ?>)
                     </li>
                     <li class="list-group-item">
                         <form class="form-inline" action="index.php?r=post/index" id="w0" method="get">
