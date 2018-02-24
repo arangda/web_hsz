@@ -3,17 +3,16 @@
 namespace backend\controllers;
 
 use Yii;
-use common\models\Post;
-use common\models\PostSearch;
+use common\models\cats;
+use common\models\CatSearch;
 use yii\web\Controller;
-use yii\web\ForbiddenHttpException;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * PostController implements the CRUD actions for Post model.
+ * CatController implements the CRUD actions for cats model.
  */
-class PostController extends Controller
+class CatController extends Controller
 {
     /**
      * @inheritdoc
@@ -31,12 +30,12 @@ class PostController extends Controller
     }
 
     /**
-     * Lists all Post models.
+     * Lists all cats models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new PostSearch();
+        $searchModel = new CatSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -46,7 +45,7 @@ class PostController extends Controller
     }
 
     /**
-     * Displays a single Post model.
+     * Displays a single cats model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -59,18 +58,13 @@ class PostController extends Controller
     }
 
     /**
-     * Creates a new Post model.
+     * Creates a new cats model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-
-        if(!Yii::$app->user->can('createPost'))
-        {
-            throw new ForbiddenHttpException('对不起，您没有进行该操作的权限。');
-        }
-        $model = new Post();
+        $model = new cats();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -82,7 +76,7 @@ class PostController extends Controller
     }
 
     /**
-     * Updates an existing Post model.
+     * Updates an existing cats model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -90,10 +84,6 @@ class PostController extends Controller
      */
     public function actionUpdate($id)
     {
-        if(!Yii::$app->user->can('updatePost'))
-        {
-            throw new ForbiddenHttpException('对不起，您没有进行该操作的权限。');
-        }
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -106,7 +96,7 @@ class PostController extends Controller
     }
 
     /**
-     * Deletes an existing Post model.
+     * Deletes an existing cats model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -114,30 +104,24 @@ class PostController extends Controller
      */
     public function actionDelete($id)
     {
-        if(!Yii::$app->user->can('deletePost'))
-        {
-            throw new ForbiddenHttpException('对不起，您没有进行该操作的权限。');
-        }
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
     }
 
     /**
-     * Finds the Post model based on its primary key value.
+     * Finds the cats model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Post the loaded model
+     * @return cats the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Post::findOne($id)) !== null) {
+        if (($model = cats::findOne($id)) !== null) {
             return $model;
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');
     }
-
-
 }

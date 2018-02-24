@@ -3,7 +3,8 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use common\models\Poststatus;
-use common\models\User;
+use backend\models\Adminuser;
+use common\models\Cats;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Post */
@@ -15,6 +16,13 @@ use common\models\User;
     <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
+    <?php
+    $cats = Cats::find()
+        ->select(['cat_name','id'])
+        ->indexBy('id')
+        ->column();
+    ?>
+    <?= $form->field($model,'cat_id')->dropDownList($cats) ?>
 
     <?= $form->field($model, 'content')->textarea(['rows' => 6]) ?>
 
@@ -29,7 +37,7 @@ use common\models\User;
     <?= $form->field($model, 'status')->dropDownList($status) ?>
 
     <?php
-        $res = User::find()->all();
+        $res = Adminuser::find()->all();
         $authors = \yii\helpers\ArrayHelper::map($res,'id','username');
     ?>
     <?= $form->field($model, 'author_id')->dropDownList($authors) ?>

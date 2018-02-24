@@ -43,7 +43,16 @@ return [
             'enableStrictParsing'=>true,
             'showScriptName' => false,
             'rules' => [
-                ['class'=>'yii\rest\UrlRule','controller'=>'article'],
+                [
+                    'class'=>'yii\rest\UrlRule',
+                    'controller'=>'article'
+                ],
+                [
+                    'class'=>'yii\rest\UrlRule',
+                    'controller'=>'top10',
+                    'except'=>['delete','create','update','view'],
+                    'pluralize'=>false,
+                ],
             ],
         ],
 

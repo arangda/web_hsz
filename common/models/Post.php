@@ -2,6 +2,7 @@
 
 namespace common\models;
 
+use function foo\func;
 use Yii;
 use backend\models\Adminuser;
 use yii\helpers\Html;
@@ -17,6 +18,7 @@ use yii\helpers\Html;
  * @property int $create_time
  * @property int $update_time
  * @property int $author_id
+ * @property int $cat_id
  *
  * @property Comment[] $comments
  * @property Adminuser $author
@@ -41,7 +43,7 @@ class Post extends \yii\db\ActiveRecord
         return [
             [['title', 'content', 'status', 'author_id'], 'required'],
             [['content', 'tags'], 'string'],
-            [['status', 'create_time', 'update_time', 'author_id'], 'integer'],
+            [['status', 'create_time', 'update_time', 'author_id','cat_id'], 'integer'],
             [['title'], 'string', 'max' => 128],
             [['author_id'], 'exist', 'skipOnError' => true, 'targetClass' => Adminuser::className(), 'targetAttribute' => ['author_id' => 'id']],
             [['status'], 'exist', 'skipOnError' => true, 'targetClass' => Poststatus::className(), 'targetAttribute' => ['status' => 'id']],
@@ -62,6 +64,7 @@ class Post extends \yii\db\ActiveRecord
             'create_time' => '创建时间',
             'update_time' => '更新时间',
             'author_id' => '作者',
+            'cat_id' => '栏目',
         ];
     }
 
@@ -83,9 +86,13 @@ class Post extends \yii\db\ActiveRecord
      */
     public function getAuthor()
     {
-        return $this->hasOne(User::className(), ['id' => 'author_id']);
+        return $this->hasOne(Adminuser::className(), ['id' => 'author_id']);
     }
 
+    public function getCat()
+    {
+        return $this->hasOne(Cats::className(),['id'=>'cat_id']);
+    }
     /**
      * @return \yii\db\ActiveQuery
      */
@@ -96,12 +103,15 @@ class Post extends \yii\db\ActiveRecord
 
     public function beforeSave($insert)
     {
+        print_r($this);exit(0);
         if(parent::beforeSave($insert))
         {
             if($insert)
             {
                 $this->create_time = time();
                 $this->update_time = time();
+                $this->author_id = Yii::$app->user->id;
+                $this->status = 1;
             }
             else
             {
@@ -163,5 +173,20 @@ class Post extends \yii\db\ActiveRecord
     public function getCommentCount()
     {
         return Comment::find()->where(['post_id'=>$this->id,'status'=>2])->count();
+    }
+
+    public function fields()
+    {
+       return [
+           'id',
+           'title',
+           '内容'=>'content',
+           'status'=>function($model){
+                return $model->status = $this->status0->name;
+           },
+           'author_id'=>function($model){
+               return $model->author_id = $this->author->username;
+           }
+       ];
     }
 }
