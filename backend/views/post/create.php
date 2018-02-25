@@ -30,10 +30,14 @@ $this->params['breadcrumbs'][] = $this->title;
                 ->column();
         ?>
         <?= $form->field($model,'cat_id')->dropDownList($cats) ?>
-        <?= $form->field($model, 'content')->textarea(['rows' => 6]) ?>
+
+        <?= $form->field($model, 'content')->widget(\yii\redactor\widgets\Redactor::className()) ?>
 
         <?= $form->field($model, 'tags')->textarea(['rows' => 6]) ?>
 
+        <?= $form->field($model, 'status')->hiddenInput(['value' => 1])->label(false) ?>
+
+        <?= $form->field($model, 'author_id')->hiddenInput(['value' => Yii::$app->user->id])->label(false) ?>
 
         <div class="form-group">
             <?= Html::submitButton('保存', ['class' => 'btn btn-success']) ?>

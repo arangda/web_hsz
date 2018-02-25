@@ -13,4 +13,12 @@ return [
             'class'=>'yii\rbac\DbManager',
         ],
     ],
+    'modules' => [
+        'redactor' => [
+            'class' => 'yii\redactor\RedactorModule',
+            'uploadDir' => '@webroot/images',
+            'uploadUrl' => 'http://image.com',
+            'imageAllowExtensions'=>['jpg','png','gif']
+        ],
+    ],
 ];

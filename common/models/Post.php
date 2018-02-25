@@ -103,15 +103,15 @@ class Post extends \yii\db\ActiveRecord
 
     public function beforeSave($insert)
     {
-        print_r($this);exit(0);
+
         if(parent::beforeSave($insert))
         {
             if($insert)
             {
                 $this->create_time = time();
                 $this->update_time = time();
-                $this->author_id = Yii::$app->user->id;
-                $this->status = 1;
+                //$this->author_id = Yii::$app->user->id;
+                //$this->status = 1;
             }
             else
             {

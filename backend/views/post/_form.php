@@ -24,7 +24,8 @@ use common\models\Cats;
     ?>
     <?= $form->field($model,'cat_id')->dropDownList($cats) ?>
 
-    <?= $form->field($model, 'content')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'content')->widget(\yii\redactor\widgets\Redactor::className()) ?>
+
 
     <?= $form->field($model, 'tags')->textarea(['rows' => 6]) ?>
 
