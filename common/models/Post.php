@@ -12,8 +12,10 @@ use yii\helpers\Html;
  *
  * @property int $id
  * @property string $title
+ * @property string $label_img
  * @property string $content
  * @property string $tags
+ * @property string $avatar
  * @property int $status
  * @property int $create_time
  * @property int $update_time
@@ -42,7 +44,7 @@ class Post extends \yii\db\ActiveRecord
     {
         return [
             [['title', 'content', 'status', 'author_id'], 'required'],
-            [['content', 'tags'], 'string'],
+            [['content','label_img', 'tags'], 'string'],
             [['status', 'create_time', 'update_time', 'author_id','cat_id'], 'integer'],
             [['title'], 'string', 'max' => 128],
             [['author_id'], 'exist', 'skipOnError' => true, 'targetClass' => Adminuser::className(), 'targetAttribute' => ['author_id' => 'id']],
@@ -58,6 +60,7 @@ class Post extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'title' => '标题',
+            'label_img' => '缩略图',
             'content' => '内容',
             'tags' => '标签',
             'status' => '状态',
@@ -65,6 +68,7 @@ class Post extends \yii\db\ActiveRecord
             'update_time' => '更新时间',
             'author_id' => '作者',
             'cat_id' => '栏目',
+            'avatar'=>'可选多张图片'
         ];
     }
 

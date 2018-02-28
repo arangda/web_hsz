@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use backend\controllers\base\baseController;
 use backend\models\ResetpwdForm;
 use backend\models\SignupForm;
 use common\models\AuthAssignment;
@@ -16,14 +17,14 @@ use yii\filters\VerbFilter;
 /**
  * AdminuserController implements the CRUD actions for Adminuser model.
  */
-class AdminuserController extends Controller
+class AdminuserController extends baseController
 {
     /**
      * @inheritdoc
      */
     public function behaviors()
     {
-        return [
+        $bh =  [
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -31,6 +32,7 @@ class AdminuserController extends Controller
                 ],
             ],
         ];
+        return array_merge($bh,parent::behaviors());
     }
 
     /**

@@ -24,6 +24,11 @@ use common\models\Cats;
     ?>
     <?= $form->field($model,'cat_id')->dropDownList($cats) ?>
 
+    <?= $form->field($model,'label_img')->widget('common\widgets\file_upload\FileUpload',[
+        'config'=>[
+        ]
+    ]) ?>
+
     <?= $form->field($model, 'content')->widget(\yii\redactor\widgets\Redactor::className()) ?>
 
 

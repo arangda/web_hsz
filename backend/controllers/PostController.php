@@ -2,10 +2,10 @@
 
 namespace backend\controllers;
 
+use backend\controllers\base\baseController;
 use Yii;
 use common\models\Post;
 use common\models\PostSearch;
-use yii\web\Controller;
 use yii\web\ForbiddenHttpException;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -13,14 +13,16 @@ use yii\filters\VerbFilter;
 /**
  * PostController implements the CRUD actions for Post model.
  */
-class PostController extends Controller
+class PostController extends baseController
 {
+
+
     /**
      * @inheritdoc
      */
     public function behaviors()
     {
-        return [
+        $bh =  [
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -28,6 +30,7 @@ class PostController extends Controller
                 ],
             ],
         ];
+        return array_merge($bh,parent::behaviors());
     }
     public function actions()
     {
@@ -40,6 +43,13 @@ class PostController extends Controller
                     'imageUrlPrefix' => Yii::$app->params['upload_url'], /* 图片访问路径前缀 */
                     'imagePathFormat' => "/images/{yyyy}{mm}{dd}/{time}{rand:6}", /* 上传保存路径,可以自定义保存路径和文件名格式 */
                 ]
+            ],
+            'upload'=>[
+                'class' => 'common\widgets\file_upload\UploadAction',     //这里扩展地址别写错
+                'config' => [
+                    'imageUrlPrefix' => Yii::$app->params['upload_url'], /* 图片访问路径前缀,在uploader.php中对url进行处理*/
+                    'imagePathFormat' => "/images/{yyyy}{mm}{dd}/{time}{rand:6}",
+                ]
             ]
         ];
     }
@@ -49,6 +59,7 @@ class PostController extends Controller
      */
     public function actionIndex()
     {
+
         $searchModel = new PostSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
@@ -78,12 +89,8 @@ class PostController extends Controller
      */
     public function actionCreate()
     {
+print_r($_FILES);exit();
 
-
-        if(!Yii::$app->user->can('createPost'))
-        {
-            throw new ForbiddenHttpException('对不起，您没有进行该操作的权限。');
-        }
         $model = new Post();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -104,10 +111,7 @@ class PostController extends Controller
      */
     public function actionUpdate($id)
     {
-        if(!Yii::$app->user->can('updatePost'))
-        {
-            throw new ForbiddenHttpException('对不起，您没有进行该操作的权限。');
-        }
+
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -128,10 +132,7 @@ class PostController extends Controller
      */
     public function actionDelete($id)
     {
-        if(!Yii::$app->user->can('deletePost'))
-        {
-            throw new ForbiddenHttpException('对不起，您没有进行该操作的权限。');
-        }
+
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);

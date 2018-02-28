@@ -1,8 +1,8 @@
 <?php
 namespace backend\controllers;
 
+use backend\controllers\base\baseController;
 use Yii;
-use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use backend\models\LoginForm;
@@ -10,35 +10,22 @@ use backend\models\LoginForm;
 /**
  * Site controller
  */
-class SiteController extends Controller
+class SiteController extends baseController
 {
     /**
      * @inheritdoc
      */
     public function behaviors()
     {
-        return [
-            'access' => [
-                'class' => AccessControl::className(),
-                'rules' => [
-                    [
-                        'actions' => ['login', 'error'],
-                        'allow' => true,
-                    ],
-                    [
-                        'actions' => ['logout', 'index'],
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
-                ],
-            ],
+        $bh =  [
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'logout' => ['post'],
+                    'delete' => ['POST'],
                 ],
             ],
         ];
+        return array_merge($bh,parent::behaviors());
     }
 
     /**
@@ -77,6 +64,7 @@ class SiteController extends Controller
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->goBack();
+           // return $this->goHome();
         } else {
             return $this->render('login', [
                 'model' => $model,

@@ -12,7 +12,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="post-view">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+
 
     <p>
         <?= Html::a('修改', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
@@ -34,6 +34,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value'=>$model->cat->cat_name,
             ],
             'title',
+            'label_img',
             'content:ntext',
             'tags:ntext',
             //'status',

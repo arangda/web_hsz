@@ -5,6 +5,7 @@ use yii\widgets\ActiveForm;
 use common\models\Poststatus;
 use common\models\User;
 use common\models\Cats;
+use kartik\file\FileInput;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Post */
@@ -15,7 +16,6 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="post-create">
 
-    <h1><?= Html::encode($this->title) ?></h1>
 
     <div class="post-form">
 
@@ -31,7 +31,17 @@ $this->params['breadcrumbs'][] = $this->title;
         ?>
         <?= $form->field($model,'cat_id')->dropDownList($cats) ?>
 
+        <?= $form->field($model,'label_img')->widget('common\widgets\file_upload\FileUpload',[
+            'config'=>[
+            ]
+        ]) ?>
+
+        <?= $form->field($model, 'avatar[]')->widget(FileInput::classname(), [
+            'options' => ['multiple' => true],
+        ]);?>
+
         <?= $form->field($model, 'content')->widget(\yii\redactor\widgets\Redactor::className()) ?>
+
 
         <?= $form->field($model, 'tags')->textarea(['rows' => 6]) ?>
 

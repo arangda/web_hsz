@@ -2,24 +2,24 @@
 
 namespace backend\controllers;
 
+use backend\controllers\base\baseController;
 use Yii;
 use common\models\Comment;
 use common\models\CommentSearch;
-use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\ForbiddenHttpException;
 /**
  * CommonController implements the CRUD actions for Comment model.
  */
-class CommentController extends Controller
+class CommentController extends baseController
 {
     /**
      * @inheritdoc
      */
     public function behaviors()
     {
-        return [
+        $bh =  [
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -27,6 +27,7 @@ class CommentController extends Controller
                 ],
             ],
         ];
+        return array_merge($bh,parent::behaviors());
     }
 
     /**

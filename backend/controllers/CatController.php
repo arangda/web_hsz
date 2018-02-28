@@ -2,24 +2,24 @@
 
 namespace backend\controllers;
 
+use backend\controllers\base\baseController;
 use Yii;
 use common\models\cats;
 use common\models\CatSearch;
-use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
  * CatController implements the CRUD actions for cats model.
  */
-class CatController extends Controller
+class CatController extends baseController
 {
     /**
      * @inheritdoc
      */
     public function behaviors()
     {
-        return [
+        $bh =  [
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -27,6 +27,7 @@ class CatController extends Controller
                 ],
             ],
         ];
+        return array_merge($bh,parent::behaviors());
     }
 
     /**

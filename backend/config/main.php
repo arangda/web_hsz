@@ -11,7 +11,22 @@ return [
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
-    'modules' => [],
+    'modules' => [
+        "admin"=>[
+            "class" => "mdm\admin\Module",
+            'layout' => 'left-menu',//yii2-admin的导航菜单
+        ],
+    ],
+    'as access' => [
+        'class' => 'mdm\admin\components\AccessControl',
+        'allowActions' => [
+            //这里是允许访问的action
+            //controller/action
+            // * 表示允许所有，后期会介绍这个
+            'site/*'
+        ]
+    ],
+    'defaultRoute'=>'post/index',
     'language'=>'zh-CN',
     'components' => [
         'request' => [
@@ -44,6 +59,10 @@ return [
             'showScriptName' => false,
             'rules' => [
             ],
+        ],
+        "authManager" => [
+            "class" => 'yii\rbac\DbManager',
+            "defaultRoles" => ["guest"],
         ],
 
     ],
