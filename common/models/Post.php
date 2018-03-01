@@ -75,6 +75,11 @@ class Post extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
+
+    public function getAvatar(){
+        return $this->hasMany(Avatar::className(),['post_id'=>'id']);
+    }
+
     public function getComments()
     {
         return $this->hasMany(Comment::className(), ['post_id' => 'id']);

@@ -5,6 +5,7 @@ use yii\widgets\ActiveForm;
 use common\models\Poststatus;
 use backend\models\Adminuser;
 use common\models\Cats;
+use kartik\file\FileInput;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Post */
@@ -28,6 +29,10 @@ use common\models\Cats;
         'config'=>[
         ]
     ]) ?>
+
+    <?= $form->field($model, 'avatar[]')->label('多张图')->widget(FileInput::classname(), [
+        'options' => ['multiple' => true],
+    ]);?>
 
     <?= $form->field($model, 'content')->widget(\yii\redactor\widgets\Redactor::className()) ?>
 
