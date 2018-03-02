@@ -15,6 +15,7 @@ $this->params['breadcrumbs'][] = ['label' => '文章列表', 'url' => ['index']]
 <div class="container">
     <div class="row">
         <div class="col-md-9">
+
             <?= ListView::widget([
                 'id'=>'postList',
                 'dataProvider'=>$dataProvider,

@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50719
 File Encoding         : 65001
 
-Date: 2018-03-01 21:04:53
+Date: 2018-03-02 16:34:27
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -162,23 +162,6 @@ CREATE TABLE `auth_rule` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `avatar`
--- ----------------------------
-DROP TABLE IF EXISTS `avatar`;
-CREATE TABLE `avatar` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `post_id` int(11) NOT NULL,
-  `avatar` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of avatar
--- ----------------------------
-INSERT INTO `avatar` VALUES ('1', '71', 'http://image.com/20180301083737/43945.jpg');
-INSERT INTO `avatar` VALUES ('2', '71', 'http://image.com/20180301083737/368179.jpg');
-
--- ----------------------------
 -- Table structure for `cats`
 -- ----------------------------
 DROP TABLE IF EXISTS `cats`;
@@ -275,35 +258,14 @@ CREATE TABLE `post` (
   KEY `FK_post_status` (`status`),
   CONSTRAINT `FK_post_author` FOREIGN KEY (`author_id`) REFERENCES `adminuser` (`id`) ON DELETE CASCADE,
   CONSTRAINT `FK_post_status` FOREIGN KEY (`status`) REFERENCES `poststatus` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=74 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=78 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of post
 -- ----------------------------
-INSERT INTO `post` VALUES ('47', '啊啊啊', '<p>啥地方斯蒂芬斯蒂芬2</p><p><img src=\"http://image.com/1/43e04dd08b-80.jpg\"></p>', '啊啊', '1', '1519463029', '1519545085', '1', '1', null);
-INSERT INTO `post` VALUES ('51', '这是测试文章', '<p>这是测试文章<span style=\"color: rgb(192, 0, 0);\"><strong>ggggg</strong></span></p><p><span style=\"color: rgb(192, 0, 0);\"><strong><img src=\"http://image.com/1/0ccb9c4f61-80.jpg\"><br></strong></span></p><p><img></p>', '打发斯蒂芬', '1', '1519521317', '1519544985', '1', '1', null);
-INSERT INTO `post` VALUES ('52', '测试图片', '<p>图片</p><p><img src=\"http://image.com/3/c7529b8e42-80.jpg\"></p>', '图片', '1', '1519780890', '1519802996', '3', '1', 'http://image.com/20180228/1519802812114262.jpg');
-INSERT INTO `post` VALUES ('53', 'aaa', '<p>aaaa</p>', 'aaa', '1', '1519863384', '1519863384', '3', '1', '');
-INSERT INTO `post` VALUES ('54', 'uuuuu', '<p>dfsdfsd</p>', 'dddddd', '1', '1519876337', '1519876337', '1', '1', '');
-INSERT INTO `post` VALUES ('55', 'aaaa', '<p>aaaa</p>', 'aaa', '1', '1519893085', '1519893085', '1', '1', '');
-INSERT INTO `post` VALUES ('56', 'bbb', '<p>bbb</p>', 'bbb', '1', '1519893261', '1519893261', '1', '1', '');
-INSERT INTO `post` VALUES ('57', 'ccc', '<p>cc</p>', 'cc', '1', '1519893476', '1519893476', '1', '1', '');
-INSERT INTO `post` VALUES ('58', 'ddd', '<p>ddd</p>', 'ddd', '1', '1519894420', '1519894420', '1', '1', '');
-INSERT INTO `post` VALUES ('59', 'ddd', '<p>sdfsdf</p>', 'dsfsdf', '1', '1519895581', '1519895581', '1', '1', '');
-INSERT INTO `post` VALUES ('60', 'eeee', '<p>ddd</p>', 'ddd', '1', '1519903920', '1519903920', '1', '1', '');
-INSERT INTO `post` VALUES ('61', 'eeee', '<p>eee</p>', 'ee', '1', '1519905075', '1519905075', '1', '1', '');
-INSERT INTO `post` VALUES ('62', 'eeee', '<p>对对对</p>', '东东饭店', '1', '1519905280', '1519905280', '1', '1', '');
-INSERT INTO `post` VALUES ('63', 'eeee', '<p>反反复复</p>', '反反复复', '1', '1519905383', '1519905383', '1', '1', '');
-INSERT INTO `post` VALUES ('64', 'eeee', '<p>费</p>', '大幅度', '1', '1519905667', '1519905667', '1', '1', '');
-INSERT INTO `post` VALUES ('65', 'eeee', '<p>设定的辅导费</p>', '电风扇多福多寿发', '1', '1519905831', '1519905831', '1', '1', '');
-INSERT INTO `post` VALUES ('66', 'eeee', '<p>打发斯蒂芬是</p>', '打发斯蒂芬', '1', '1519906192', '1519906192', '1', '1', '');
-INSERT INTO `post` VALUES ('67', 'eeee', '<p>哈哈哈哈</p>', '哈哈哈哈', '1', '1519906921', '1519906921', '1', '1', '');
-INSERT INTO `post` VALUES ('68', 'eeee', '<p>呃呃呃</p>', '额鹅鹅鹅', '1', '1519907068', '1519907068', '1', '1', '');
-INSERT INTO `post` VALUES ('69', 'eeee', '<p>DFDSF </p>', 'DFSDFSF', '1', '1519907440', '1519907440', '1', '1', '');
-INSERT INTO `post` VALUES ('70', 'eeee', '<p>日日日</p>', '夫人人人', '1', '1519907594', '1519907594', '1', '1', '');
-INSERT INTO `post` VALUES ('71', 'eeee', '<p>日日日</p>', '让她日日日', '1', '1519907857', '1519907857', '1', '1', '');
-INSERT INTO `post` VALUES ('72', 'ttt', '<p>ttt</p>', 'ttt', '1', '1519908910', '1519908910', '1', '1', '');
-INSERT INTO `post` VALUES ('73', 'ttt', '<p>ttt</p>', 'ttt', '1', '1519909004', '1519909004', '1', '1', '');
+INSERT INTO `post` VALUES ('75', '这是测试文章', '<p>这是测试文章内容这是测试文章内容这是测试文章内容<span class=\"redactor-invisible-space\">这是测试文章内容<span class=\"redactor-invisible-space\">这是测试文章内容<span class=\"redactor-invisible-space\">这是测试文章内容<span class=\"redactor-invisible-space\">这是测试文章内容<span class=\"redactor-invisible-space\">这是测试文章内容<span class=\"redactor-invisible-space\"></span></span></span></span></span></span></p>', '', '1', '1519960853', '1519960853', '3', '1', 'http://image.com/20180302/1519960837134431.jpg');
+INSERT INTO `post` VALUES ('76', '这是测试文章2', '<p>这是测试文章2这是测试文章2<span class=\"redactor-invisible-space\">这是测试文章2<span class=\"redactor-invisible-space\">这是测试文章2<span class=\"redactor-invisible-space\">这是测试文章2<span class=\"redactor-invisible-space\">这是测试文章2<span class=\"redactor-invisible-space\">这是测试文章2<span class=\"redactor-invisible-space\">这是测试文章2<span class=\"redactor-invisible-space\"></span></span></span></span></span></span></span></p>', '测试', '1', '1519960893', '1519960893', '3', '1', 'http://image.com/20180302/1519960878249240.jpg');
+INSERT INTO `post` VALUES ('77', '这是测试文章3', '<p>这是测试文章3这是测试文章3<span class=\"redactor-invisible-space\">这是测试文章3<span class=\"redactor-invisible-space\">这是测试文章3<span class=\"redactor-invisible-space\">这是测试文章3<span class=\"redactor-invisible-space\">这是测试文章3<span class=\"redactor-invisible-space\">这是测试文章3<span class=\"redactor-invisible-space\">这是测试文章3<span class=\"redactor-invisible-space\">这是测试文章3<span class=\"redactor-invisible-space\"></span></span></span></span></span></span></span></span></p>', '测试,文章', '1', '1519960921', '1519960921', '3', '1', '');
 
 -- ----------------------------
 -- Table structure for `poststatus`
@@ -332,31 +294,13 @@ CREATE TABLE `tag` (
   `name` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
   `frequency` int(11) DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=100 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=103 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of tag
 -- ----------------------------
-INSERT INTO `tag` VALUES ('78', '啊啊', '1');
-INSERT INTO `tag` VALUES ('81', '打发斯蒂芬', '2');
-INSERT INTO `tag` VALUES ('82', '图片', '1');
-INSERT INTO `tag` VALUES ('83', 'aaa', '2');
-INSERT INTO `tag` VALUES ('84', 'dddddd', '1');
-INSERT INTO `tag` VALUES ('85', 'bbb', '1');
-INSERT INTO `tag` VALUES ('86', 'cc', '1');
-INSERT INTO `tag` VALUES ('87', 'ddd', '2');
-INSERT INTO `tag` VALUES ('88', 'dsfsdf', '1');
-INSERT INTO `tag` VALUES ('89', 'ee', '1');
-INSERT INTO `tag` VALUES ('90', '东东饭店', '1');
-INSERT INTO `tag` VALUES ('91', '反反复复', '1');
-INSERT INTO `tag` VALUES ('92', '大幅度', '1');
-INSERT INTO `tag` VALUES ('93', '电风扇多福多寿发', '1');
-INSERT INTO `tag` VALUES ('94', '哈哈哈哈', '1');
-INSERT INTO `tag` VALUES ('95', '额鹅鹅鹅', '1');
-INSERT INTO `tag` VALUES ('96', 'DFSDFSF', '1');
-INSERT INTO `tag` VALUES ('97', '夫人人人', '1');
-INSERT INTO `tag` VALUES ('98', '让她日日日', '1');
-INSERT INTO `tag` VALUES ('99', 'ttt', '2');
+INSERT INTO `tag` VALUES ('101', '测试', '2');
+INSERT INTO `tag` VALUES ('102', '文章', '1');
 
 -- ----------------------------
 -- Table structure for `user`

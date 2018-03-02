@@ -30,9 +30,7 @@ use kartik\file\FileInput;
         ]
     ]) ?>
 
-    <?= $form->field($model, 'avatar[]')->label('多张图')->widget(FileInput::classname(), [
-        'options' => ['multiple' => true],
-    ]);?>
+
 
     <?= $form->field($model, 'content')->widget(\yii\redactor\widgets\Redactor::className()) ?>
 

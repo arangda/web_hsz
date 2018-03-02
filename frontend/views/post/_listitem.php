@@ -19,7 +19,20 @@ use yii\helpers\Html;
     </div>
     <br>
     <div class="content">
-        <?= $model->beginning;?>
+        <table>
+            <tr>
+                <?php if ($model->label_img): ?>
+                   <td>
+                       <div class="label_img">
+                           <img class="img-thumbnail" src="<?= $model->label_img ?>"/>
+                       </div>
+                   </td>
+                <?php endif; ?>
+                <td>
+                    <?= $model->beginning;?>
+                </td>
+            </tr>
+        </table>
     </div>
     <br>
     <div class="nav">
