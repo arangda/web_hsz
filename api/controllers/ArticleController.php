@@ -26,7 +26,7 @@ class ArticleController extends ActiveController
         return new ActiveDataProvider(
             [
                 'query'=>$modelClass::find()->asArray(),
-                'pagination'=>['pageSize'=>5],
+                'pagination'=>['pageSize'=>2],
             ]
         );
     }

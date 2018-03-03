@@ -24,7 +24,7 @@ return [
         'redactor' => [
             'class' => 'yii\redactor\RedactorModule',
             'uploadDir' => '@webroot/images',
-            'uploadUrl' =>  Yii::$app->params['upload_url'],
+            'uploadUrl' => 'http://image.xahsz.cn',
             'imageAllowExtensions'=>['jpg','png','gif']
         ],
     ],
