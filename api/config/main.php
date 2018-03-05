@@ -14,6 +14,8 @@ return [
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-frontend',
+            'enableCookieValidation' => true,
+            'cookieValidationKey' => 'your-validation-key',
         ],
         'user' => [
             'identityClass' => 'common\models\Adminuser',
