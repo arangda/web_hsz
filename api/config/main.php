@@ -13,9 +13,9 @@ return [
     'controllerNamespace' => 'api\controllers',
     'components' => [
         'request' => [
-            'csrfParam' => '_csrf-frontend',
+            'csrfParam' => '_csrf-api',
             'enableCookieValidation' => true,
-            'cookieValidationKey' => 'your-validation-key',
+            'cookieValidationKey' => 's-jT3fzSj92ifDZrOb1aikq1zqwCYIIf',
         ],
         'user' => [
             'identityClass' => 'common\models\Adminuser',
