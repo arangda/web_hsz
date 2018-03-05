@@ -24,7 +24,7 @@ use yii\helpers\Html;
                 <?php if ($model->label_img): ?>
                    <td>
                        <div class="label_img">
-                           <img class="img-thumbnail" src="<?= $model->label_img ?>"/>
+                           <img class="img-rounded" src="<?= $model->label_img ?>"/>
                        </div>
                    </td>
                 <?php endif; ?>

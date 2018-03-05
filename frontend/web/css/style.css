@@ -3,4 +3,5 @@ em{font-style: normal;}
 .container .post{border-bottom: 1px dashed #1c2d3f;padding-bottom: 10px;}
 .container .post .content table td{padding: 0 10px;font-size: 16px;}
 .container .post .content table td .label_img{height:100px;overflow: hidden;}
+.container .post .content table td .label_img img{width:180px;min-width: 180px;}
 
