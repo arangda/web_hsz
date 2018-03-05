@@ -7,7 +7,7 @@ namespace backend\controllers\base;
  * 基础控制器
  */
 use Yii;
-use yii\web\controller;
+use yii\web\Controller;
 use yii\filters\AccessControl;
 
 class baseController extends controller
