@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50719
 File Encoding         : 65001
 
-Date: 2018-03-02 16:34:27
+Date: 2018-03-06 15:28:36
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -253,19 +253,21 @@ CREATE TABLE `post` (
   `author_id` int(11) NOT NULL,
   `cat_id` int(11) DEFAULT NULL,
   `label_img` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `subhead` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `FK_post_author` (`author_id`),
   KEY `FK_post_status` (`status`),
   CONSTRAINT `FK_post_author` FOREIGN KEY (`author_id`) REFERENCES `adminuser` (`id`) ON DELETE CASCADE,
   CONSTRAINT `FK_post_status` FOREIGN KEY (`status`) REFERENCES `poststatus` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=78 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=79 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of post
 -- ----------------------------
-INSERT INTO `post` VALUES ('75', '这是测试文章', '<p>这是测试文章内容这是测试文章内容这是测试文章内容<span class=\"redactor-invisible-space\">这是测试文章内容<span class=\"redactor-invisible-space\">这是测试文章内容<span class=\"redactor-invisible-space\">这是测试文章内容<span class=\"redactor-invisible-space\">这是测试文章内容<span class=\"redactor-invisible-space\">这是测试文章内容<span class=\"redactor-invisible-space\"></span></span></span></span></span></span></p>', '', '1', '1519960853', '1519960853', '3', '1', 'http://image.com/20180302/1519960837134431.jpg');
-INSERT INTO `post` VALUES ('76', '这是测试文章2', '<p>这是测试文章2这是测试文章2<span class=\"redactor-invisible-space\">这是测试文章2<span class=\"redactor-invisible-space\">这是测试文章2<span class=\"redactor-invisible-space\">这是测试文章2<span class=\"redactor-invisible-space\">这是测试文章2<span class=\"redactor-invisible-space\">这是测试文章2<span class=\"redactor-invisible-space\">这是测试文章2<span class=\"redactor-invisible-space\"></span></span></span></span></span></span></span></p>', '测试', '1', '1519960893', '1519960893', '3', '1', 'http://image.com/20180302/1519960878249240.jpg');
-INSERT INTO `post` VALUES ('77', '这是测试文章3', '<p>这是测试文章3这是测试文章3<span class=\"redactor-invisible-space\">这是测试文章3<span class=\"redactor-invisible-space\">这是测试文章3<span class=\"redactor-invisible-space\">这是测试文章3<span class=\"redactor-invisible-space\">这是测试文章3<span class=\"redactor-invisible-space\">这是测试文章3<span class=\"redactor-invisible-space\">这是测试文章3<span class=\"redactor-invisible-space\">这是测试文章3<span class=\"redactor-invisible-space\"></span></span></span></span></span></span></span></span></p>', '测试,文章', '1', '1519960921', '1519960921', '3', '1', '');
+INSERT INTO `post` VALUES ('75', '这是测试文章', '<p>这是测试文章内容这是测试文章内容这是测试文章内容<span class=\"redactor-invisible-space\">这是测试文章内容<span class=\"redactor-invisible-space\">这是测试文章内容<span class=\"redactor-invisible-space\">这是测试文章内容<span class=\"redactor-invisible-space\">这是测试文章内容<span class=\"redactor-invisible-space\">这是测试文章内容<span class=\"redactor-invisible-space\"></span></span></span></span></span></span></p>', '', '1', '1519960853', '1519960853', '3', '1', 'http://image.com/20180302/1519960837134431.jpg', null);
+INSERT INTO `post` VALUES ('76', '这是测试文章2', '<p>这是测试文章2这是测试文章2<span class=\"redactor-invisible-space\">这是测试文章2<span class=\"redactor-invisible-space\">这是测试文章2<span class=\"redactor-invisible-space\">这是测试文章2<span class=\"redactor-invisible-space\">这是测试文章2<span class=\"redactor-invisible-space\">这是测试文章2<span class=\"redactor-invisible-space\">这是测试文章2<span class=\"redactor-invisible-space\"></span></span></span></span></span></span></span></p>', '测试', '1', '1519960893', '1519960893', '3', '1', 'http://image.com/20180302/1519960878249240.jpg', null);
+INSERT INTO `post` VALUES ('77', '这是测试文章3', '<p>这是测试文章3这是测试文章3<span class=\"redactor-invisible-space\">这是测试文章3<span class=\"redactor-invisible-space\">这是测试文章3<span class=\"redactor-invisible-space\">这是测试文章3<span class=\"redactor-invisible-space\">这是测试文章3<span class=\"redactor-invisible-space\">这是测试文章3<span class=\"redactor-invisible-space\">这是测试文章3<span class=\"redactor-invisible-space\">这是测试文章3<span class=\"redactor-invisible-space\"></span></span></span></span></span></span></span></span></p>', '测试,文章', '1', '1519960921', '1519960921', '3', '1', '', null);
+INSERT INTO `post` VALUES ('78', '测试文章4', '<p>啊啊啊</p><p><img src=\"http://image.com/1/d8e1344e27-rrr.jpg\"></p>', '啊啊', '1', '1520215463', '1520215463', '1', '1', 'http://image.com/20180305/1520214894807448.jpg', null);
 
 -- ----------------------------
 -- Table structure for `poststatus`
@@ -294,13 +296,14 @@ CREATE TABLE `tag` (
   `name` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
   `frequency` int(11) DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=103 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=104 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of tag
 -- ----------------------------
 INSERT INTO `tag` VALUES ('101', '测试', '2');
 INSERT INTO `tag` VALUES ('102', '文章', '1');
+INSERT INTO `tag` VALUES ('103', '啊啊', '1');
 
 -- ----------------------------
 -- Table structure for `user`

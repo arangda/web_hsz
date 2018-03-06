@@ -189,9 +189,10 @@ class Post extends \yii\db\ActiveRecord
        return [
            'id',
            'title',
-           'content'=>function($model){
-                return $model->content = $this->getBeginning(20);
+           'subhead'=>function($model){
+                return $model->subhead = $this->getBeginning(20);
            },
+           'content',
            'status'=>function($model){
                 return $model->status = $this->status0->name;
            },

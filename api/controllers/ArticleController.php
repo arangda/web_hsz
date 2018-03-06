@@ -31,4 +31,6 @@ class ArticleController extends ActiveController
             ]
         );
     }
+
+
 }
