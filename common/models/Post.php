@@ -189,13 +189,17 @@ class Post extends \yii\db\ActiveRecord
        return [
            'id',
            'title',
-           '内容'=>'content',
+           'content'=>function($model){
+                return $model->content = $this->getBeginning(20);
+           },
            'status'=>function($model){
                 return $model->status = $this->status0->name;
            },
            'author_id'=>function($model){
                return $model->author_id = $this->author->username;
-           }
+           },
+           'label_img',
+
        ];
     }
 }
