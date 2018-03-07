@@ -200,6 +200,9 @@ class Post extends \yii\db\ActiveRecord
                return $model->author_id = $this->author->username;
            },
            'label_img',
+           'create_time'=>function($model){
+               return $model->create_time = date('Y-m-d',$model->create_time);
+           }
 
        ];
     }
