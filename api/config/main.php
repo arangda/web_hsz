@@ -15,11 +15,7 @@ return [
         'request' => [
             'csrfParam' => '_csrf-api',
             'enableCookieValidation' => true,
-            'cookieValidationKey' => 's-jT3fzSj92ifDZrOb1aikq1zqwCYIIf',
-            'parsers' => [
-                'application/json'=>'yii\web\JsonParser',
-                'text/json'=>'yii\web\JsonParser',
-            ]
+            'cookieValidationKey' => 's-jT3fzSj92ifDZrOb1aikq1zqwCYIIf'
         ],
         'user' => [
             'identityClass' => 'common\models\Adminuser',
