@@ -27,7 +27,7 @@ class Register extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id', 'name', 'tel'], 'required'],
+            [['name', 'tel'], 'required'],
             [['id', 'tel'], 'integer'],
             [['name'], 'string', 'max' => 255],
             [['id'], 'unique'],
