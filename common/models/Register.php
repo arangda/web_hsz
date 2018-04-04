@@ -9,7 +9,9 @@ use Yii;
  *
  * @property int $id
  * @property string $name
- * @property int $tel
+ * @property string $tel
+ * @property string $disease
+ * @property string $cdate
  */
 class Register extends \yii\db\ActiveRecord
 {
@@ -28,9 +30,8 @@ class Register extends \yii\db\ActiveRecord
     {
         return [
             [['name', 'tel'], 'required'],
-            [['id', 'tel'], 'integer'],
-            [['name'], 'string', 'max' => 255],
-            [['id'], 'unique'],
+            [['tel'], 'integer'],
+            [['name', 'disease', 'cdate'], 'string', 'max' => 255],
         ];
     }
 
@@ -43,6 +44,8 @@ class Register extends \yii\db\ActiveRecord
             'id' => 'ID',
             'name' => 'Name',
             'tel' => 'Tel',
+            'disease' => 'Disease',
+            'cdate' => 'Cdate',
         ];
     }
 }
