@@ -10,7 +10,7 @@ return [
             'class' => 'yii\db\Connection',
             'dsn' => 'mysql:host=localhost;dbname=web_hsz',
             'username' => 'root',
-            'password' => 'Nq5qDDnwVA',
+            'password' => '123',
             'charset' => 'utf8',
         ],
         'cache' => [

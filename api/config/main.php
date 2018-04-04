@@ -16,6 +16,10 @@ return [
             'csrfParam' => '_csrf-api',
             'enableCookieValidation' => true,
             'cookieValidationKey' => 's-jT3fzSj92ifDZrOb1aikq1zqwCYIIf',
+            'parsers' => [
+                'application/json'=>'yii\web\JsonParser',
+                'text/json'=>'yii\web\JsonParser',
+            ]
         ],
         'user' => [
             'identityClass' => 'common\models\Adminuser',
@@ -48,6 +52,10 @@ return [
                 [
                     'class'=>'yii\rest\UrlRule',
                     'controller'=>'article'
+                ],
+                [
+                    'class'=>'yii\rest\UrlRule',
+                    'controller'=>'register'
                 ],
                 [
                     'class'=>'yii\rest\UrlRule',
