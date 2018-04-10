@@ -42,10 +42,10 @@ class Register extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
-            'tel' => 'Tel',
-            'disease' => 'Disease',
-            'cdate' => 'Cdate',
+            'name' => '姓名',
+            'tel' => '电话',
+            'disease' => '疾病',
+            'cdate' => '预约时间',
         ];
     }
 }
