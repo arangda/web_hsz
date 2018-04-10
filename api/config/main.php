@@ -59,6 +59,10 @@ return [
                 ],
                 [
                     'class'=>'yii\rest\UrlRule',
+                    'controller'=>'weitai'
+                ],
+                [
+                    'class'=>'yii\rest\UrlRule',
                     'controller'=>'top10',
                     'except'=>['delete','create','update','view'],
                     'pluralize'=>false,
