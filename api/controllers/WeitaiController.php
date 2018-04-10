@@ -16,23 +16,15 @@ class WeitaiController extends ActiveController
 
     public function behaviors()
     {
-        return ArrayHelper::merge(parent::behaviors(), [
-            'authenticator' => [
-                'class' => QueryParamAuth::className(),
-            ],
+        return ArrayHelper::merge([
             [
                 'class' => Cors::className(),
                 'cors' => [
-                    'Origin' => ['*'],//定义允许来源的数组
-                    'Access-Control-Request-Method' => ['GET','POST','PUT','DELETE', 'HEAD', 'OPTIONS'],//允许动作的数组
+                    'Origin' => ['*'],
+                    'Access-Control-Request-Method' => ['GET', 'POST', 'OPTIONS'],
                 ],
-                'actions' => [
-                    'index' => [
-                        'Access-Control-Allow-Credentials' => true,
-                    ]
-                ]
             ],
-        ]);
+        ], parent::behaviors());
     }
     public $modelClass = 'common\models\Weitai';
 
