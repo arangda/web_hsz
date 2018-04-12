@@ -18,8 +18,8 @@ class WeitaiSearch extends Weitai
     public function rules()
     {
         return [
-            [['id', 'tel'], 'integer'],
-            [['name', 'disease', 'cdate'], 'safe'],
+            [['id', 'tel', 'age'], 'integer'],
+            [['name', 'sex', 'disease', 'source', 'cdate', 'rdate'], 'safe'],
         ];
     }
 
@@ -61,11 +61,15 @@ class WeitaiSearch extends Weitai
         $query->andFilterWhere([
             'id' => $this->id,
             'tel' => $this->tel,
+            'age' => $this->age,
         ]);
 
         $query->andFilterWhere(['like', 'name', $this->name])
+            ->andFilterWhere(['like', 'sex', $this->sex])
             ->andFilterWhere(['like', 'disease', $this->disease])
-            ->andFilterWhere(['like', 'cdate', $this->cdate]);
+            ->andFilterWhere(['like', 'source', $this->source])
+            ->andFilterWhere(['like', 'cdate', $this->cdate])
+            ->andFilterWhere(['like', 'rdate', $this->rdate]);
 
         return $dataProvider;
     }

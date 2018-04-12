@@ -10,8 +10,12 @@ use Yii;
  * @property int $id
  * @property string $name
  * @property string $tel
+ * @property string $sex
+ * @property int $age
  * @property string $disease
+ * @property string $source
  * @property string $cdate
+ * @property string $rdate
  */
 class Weitai extends \yii\db\ActiveRecord
 {
@@ -30,8 +34,9 @@ class Weitai extends \yii\db\ActiveRecord
     {
         return [
             [['name', 'tel'], 'required'],
-            [['tel'], 'integer'],
-            [['name', 'disease', 'cdate'], 'string', 'max' => 255],
+            [['tel','age'], 'integer'],
+            [['name','sex','disease', 'cdate', 'rdate'], 'string', 'max' => 255],
+            [['source'], 'string', 'max' => 500],
         ];
     }
 
@@ -44,8 +49,12 @@ class Weitai extends \yii\db\ActiveRecord
             'id' => 'ID',
             'name' => '姓名',
             'tel' => '电话',
+            'sex' => '性别',
+            'age' => '年龄',
             'disease' => '疾病',
+            'source' => '来源',
             'cdate' => '预约时间',
+            'rdate' => '登记时间',
         ];
     }
 }

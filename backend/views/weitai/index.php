@@ -26,15 +26,39 @@ $this->params['breadcrumbs'][] = $this->title;
             //'name',
             [
                 'attribute'=>'name',
-                'contentOptions'=>['width'=>'180px'],
+                'contentOptions'=>['width'=>'180px']
             ],
             //'tel',
             [
                 'attribute'=>'tel',
-                'contentOptions'=>['width'=>'180px'],
+                'contentOptions'=>['width'=>'180px']
             ],
-            'disease',
-            'cdate',
+            //'sex',
+            [
+                'attribute'=>'sex',
+                'contentOptions'=>['width'=>'100px']
+            ],
+            //'age',
+            [
+                'attribute'=>'age',
+                'contentOptions'=>['width'=>'100px']
+            ],
+            //'disease',
+            [
+                'attribute'=>'disease',
+                'contentOptions'=>['width'=>'100px']
+            ],
+            'source',
+            //'cdate',
+            [
+                'attribute'=>'cdate',
+                'contentOptions'=>['width'=>'180px']
+            ],
+            //'rdate',
+            [
+                'attribute'=>'rdate',
+                'contentOptions'=>['width'=>'180px']
+            ],
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
