@@ -51,7 +51,7 @@ class Weitai extends \yii\db\ActiveRecord
             'tel' => '电话',
             'sex' => '性别',
             'age' => '年龄',
-            'disease' => '疾病',
+            'disease' => '疾病描述',
             'source' => '来源',
             'cdate' => '预约时间',
             'rdate' => '登记时间',
