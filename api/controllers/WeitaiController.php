@@ -48,7 +48,9 @@ class WeitaiController extends ActiveController
     public function actionCreate()
     {
         $model = new Weitai();
-        $model->load(Yii::$app->request->bodyParams, '');
+        $params = Yii::$app->request->bodyParams;
+        $model->load($params, '');
+        //检查同名人提交，小于一定时间禁止提交
         $model->rdate = date('Y-m-d H:i:s');
         $query = (new Query())
             ->from('weitai')
@@ -65,7 +67,17 @@ class WeitaiController extends ActiveController
          }
 
         if ($model->save()) {
+            //保存同时邮件发送给需要的人以便提醒
+            $users= ['495694459@qq.com','273890638@qq.com','285262975@qq.com'];
+            $messages = [];
+            foreach ($users as $user)
+            {
+                $messages[] = Yii::$app->mailer->compose('weitai',['list'=>$params])
+                        ->setTo($user)
+                        ->setSubject("有人预约啦");
+            }
 
+            Yii::$app->mailer->sendMultiple($messages);
             return $model;
 
         }elseif (!$model->hasErrors()) {

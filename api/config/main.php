@@ -69,6 +69,23 @@ return [
                 ],
             ],
         ],
+        'mailer'=>[
+            'class'=>'yii\swiftmailer\Mailer',
+            'viewPath' => '@common/mail',
+            'useFileTransport' => false,
+            'transport' =>[
+                'class'=>'Swift_SmtpTransport',
+                'host'=>'smtp.qq.com',
+                'username'=>'273890638@qq.com',
+                'password'=>'xg273890638',
+                'port'=>'25',
+                'encryption'=>'tls',
+            ],
+            'messageConfig'=>[
+                'charset'=>'UTF-8',
+                'from'=>['273890638@qq.com'=>'预约系统']
+            ]
+        ]
 
     ],
     'params' => $params,
