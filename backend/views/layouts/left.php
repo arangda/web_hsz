@@ -49,7 +49,7 @@ use common\models\Comment;
                                     ['label' => '栏目管理', 'icon' => 'circle-o','url' => ['/cat/index']],
                                     ['label' => '文章管理', 'icon' => 'circle-o', 'url' => ['/post/index']],
                                     ['label' => '管理员', 'icon' => 'circle-o','url' => ['/adminuser/index']],
-                                    ['label' => '小程序预约', 'icon' => 'circle-o','url' => ['/register/index']],
+                                    ['label' => '友好预约', 'icon' => 'circle-o','url' => ['/register/index']],
                                     ['label' => '胃泰预约', 'icon' => 'circle-o','url' => ['/weitai/index']],
 
                         ],
