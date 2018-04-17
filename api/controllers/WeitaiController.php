@@ -78,7 +78,6 @@ class WeitaiController extends ActiveController
             }
 
             Yii::$app->mailer->sendMultiple($messages);
-            return $model;
 
         }elseif (!$model->hasErrors()) {
             throw new ServerErrorHttpException('Failed to create the object for unknown reason.');
