@@ -67,7 +67,7 @@ class RegisterController extends ActiveController
 
         if ($model->save()) {
             //保存同时邮件发送给需要的人以便提醒
-            $users= ['273890638@qq.com'];
+            $users= ['273890638@qq.com','417329984@qq.com','583482983@qq.com'];
             $messages = [];
             foreach ($users as $user)
             {
