@@ -66,22 +66,24 @@ class RegisterController extends ActiveController
         }
 
         if ($model->save()) {
-            echo $model;
-            //保存同时邮件发送给需要的人以便提醒
-            $users= ['273890638@qq.com','417329984@qq.com','583482983@qq.com'];
-            $messages = [];
-            foreach ($users as $user)
-            {
-                $messages[] = Yii::$app->mailer->compose('youhao',['list'=>$params])
-                    ->setTo($user)
-                    ->setSubject("有人预约啦");
-            }
-
-            Yii::$app->mailer->sendMultiple($messages);
+            return $model;
 
         }elseif (!$model->hasErrors()) {
             throw new ServerErrorHttpException('Failed to create the object for unknown reason.');
         }
+
+        //保存同时邮件发送给需要的人以便提醒
+        $users= ['273890638@qq.com','417329984@qq.com','583482983@qq.com'];
+        $messages = [];
+        foreach ($users as $user)
+        {
+            $messages[] = Yii::$app->mailer->compose('youhao',['list'=>$params])
+                ->setTo($user)
+                ->setSubject("有人预约啦");
+        }
+
+        Yii::$app->mailer->sendMultiple($messages);
+
 
     }
 }
