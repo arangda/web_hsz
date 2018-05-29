@@ -39,6 +39,7 @@ class PostController extends Controller
      */
     public function actionIndex()
     {
+        $this->getView()->title = '列表';
         $tags = Tag::findTagWeights();
         $recentComments = Comment::findRecentComments();
         $searchModel = new PostSearch();
@@ -138,6 +139,7 @@ class PostController extends Controller
     {
         //step1. 准备数据模型
         $model = $this->findModel($id);
+        $this->getView()->title = $model->title;
         $tags = Tag::findTagWeights();
         $recentComments = Comment::findRecentComments();
 
