@@ -20,7 +20,7 @@ AppAsset::register($this);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
     <?= Html::csrfMetaTags() ?>
-    <link rel="stylesheet" type="text/css" href="https://c.mipcdn.com/static/v1/mip.css">
+ 
     <title><?= Html::encode($this->title) ?>-西安雁塔友好医院</title>
     <?php $this->head() ?>
 </head>
@@ -77,7 +77,7 @@ AppAsset::register($this);
 
     </div>
 </footer>
-<script src="https://c.mipcdn.com/static/v1/mip.js"></script>
+
 <?php $this->endBody() ?>
 </body>
 </html>
