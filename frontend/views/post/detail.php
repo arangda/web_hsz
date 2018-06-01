@@ -99,7 +99,7 @@ use yii\helpers\Url;
                     </li>
                 </ul>
             </div>
-
+<!--
             <div class="tagcloudbox">
                 <ul class="list-group">
                     <li class="list-group-item">
@@ -110,7 +110,7 @@ use yii\helpers\Url;
                     </li>
                 </ul>
             </div>
-
+-->
             <div class="searchbox">
                 <ul class="list-group">
                     <li class="list-group-item">

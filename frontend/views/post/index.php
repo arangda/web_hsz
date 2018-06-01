@@ -56,7 +56,7 @@ $this->params['breadcrumbs'][] = ['label' => '文章列表', 'url' => Url::to(['
                     </li>
                 </ul>
             </div>
-
+<!--
             <div class="tagcloudbox">
                 <ul class="list-group">
                     <li class="list-group-item">
@@ -67,7 +67,7 @@ $this->params['breadcrumbs'][] = ['label' => '文章列表', 'url' => Url::to(['
                     </li>
                 </ul>
             </div>
-
+-->
             <div class="searchbox">
                 <ul class="list-group">
                     <li class="list-group-item">
