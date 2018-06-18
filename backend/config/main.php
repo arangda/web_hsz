@@ -31,6 +31,7 @@ return [
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-backend',
+
         ],
         'user' => [
             'identityClass' => 'backend\models\Adminuser',

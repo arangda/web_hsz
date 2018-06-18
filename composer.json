@@ -21,7 +21,9 @@
         "yiidoc/yii2-redactor": "^2.0",
         "dmstr/yii2-adminlte-asset": "^2.1",
         "mdmsoft/yii2-admin": "~2.0",
-        "kartik-v/yii2-widget-fileinput": "@dev"
+        "kartik-v/yii2-widget-fileinput": "@dev",
+        "yiisoft/yii2-imagine": "^2.1",
+        "kartik-v/yii2-widget-datepicker": "@dev"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

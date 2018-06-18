@@ -120,3 +120,18 @@ a.desc:after {
 }
 
 .glyphicon{margin-left:5px;}
+
+/**
+生成预约卡
+ */
+.card-create{padding:50px;}
+.card-create .card-form{400px;float:left;}
+.card-create .card-img{500px;float:left;margin-left:100px;}
+.card-create li{list-style:none;margin-top:10px;}
+.card-create li label{padding: 0 10px;width:100px;vertical-align: top;}
+.card-create li.ttwo label{float:left;}
+.card-create li.tfour label{float:left;}
+#d_two-kvdate{width:240px;float:left;}
+#d_four{width:175px;height:26px;float:left;}
+#d_eight{width:260px;}
+#create{width:120px;margin-left:100px;}
