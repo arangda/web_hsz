@@ -25,14 +25,14 @@ class CardController extends \yii\web\Controller
         $d_six = $request->post('dsix');
         $d_seven = $request->post('dseven');
         $d_eight = $request->post('deight');
-        Image::text('@webroot/images/new_pc_card.png', $d_one, '@webroot/font/wryh.ttf', [85,123] ,['color'=>'444','size'=>10])->save('F:/www/web_hsz/backend/web/images/card2.png', ['quality'=>100]);
-        Image::text('@webroot/images/card2.png', $d_two, '@webroot/font/wryh.ttf', [222,123] ,['color'=>'444','size'=>10])->save('F:/www/web_hsz/backend/web/images/card2.png', ['quality'=>100]);
-        Image::text('@webroot/images/card2.png', $d_three, '@webroot/font/wryh.ttf', [85,145] ,['color'=>'444','size'=>10])->save('F:/www/web_hsz/backend/web/images/card2.png', ['quality'=>100]);
-        Image::text('@webroot/images/card2.png', $d_four, '@webroot/font/wryh.ttf', [222,145] ,['color'=>'444','size'=>10])->save('F:/www/web_hsz/backend/web/images/card2.png', ['quality'=>100]);
-        Image::text('@webroot/images/card2.png', $d_five, '@webroot/font/wryh.ttf', [85,168] ,['color'=>'444','size'=>10])->save('F:/www/web_hsz/backend/web/images/card2.png', ['quality'=>100]);
-        Image::text('@webroot/images/card2.png', $d_six, '@webroot/font/wryh.ttf', [222,168] ,['color'=>'444','size'=>10])->save('F:/www/web_hsz/backend/web/images/card2.png', ['quality'=>100]);
-        Image::text('@webroot/images/card2.png', $d_seven, '@webroot/font/wryh.ttf', [346,172] ,['color'=>'444','size'=>10])->save('F:/www/web_hsz/backend/web/images/card2.png', ['quality'=>100]);
-        Image::text('@webroot/images/card2.png', $d_eight, '@webroot/font/wryh.ttf', [85,190] ,['color'=>'444','size'=>10])->save('F:/www/web_hsz/backend/web/images/card2.png', ['quality'=>100]);
-        echo "suc";
+        Image::text('@webroot/images/new_pc_card.png', $d_one, '@webroot/font/wryh.ttf', [85,123] ,['color'=>'444','size'=>10])->save(Yii::getAlias("@webroot").'/images/card2.png', ['quality'=>100]);
+        Image::text('@webroot/images/card2.png', $d_two, '@webroot/font/wryh.ttf', [222,123] ,['color'=>'444','size'=>10])->save(Yii::getAlias("@webroot").'/images/card2.png', ['quality'=>100]);
+        Image::text('@webroot/images/card2.png', $d_three, '@webroot/font/wryh.ttf', [85,145] ,['color'=>'444','size'=>10])->save(Yii::getAlias("@webroot").'/images/card2.png', ['quality'=>100]);
+        Image::text('@webroot/images/card2.png', $d_four, '@webroot/font/wryh.ttf', [222,145] ,['color'=>'444','size'=>10])->save(Yii::getAlias("@webroot").'/images/card2.png', ['quality'=>100]);
+        Image::text('@webroot/images/card2.png', $d_five, '@webroot/font/wryh.ttf', [85,168] ,['color'=>'444','size'=>10])->save(Yii::getAlias("@webroot").'/images/card2.png', ['quality'=>100]);
+        Image::text('@webroot/images/card2.png', $d_six, '@webroot/font/wryh.ttf', [222,168] ,['color'=>'444','size'=>10])->save(Yii::getAlias("@webroot").'/images/card2.png', ['quality'=>100]);
+        Image::text('@webroot/images/card2.png', $d_seven, '@webroot/font/wryh.ttf', [346,172] ,['color'=>'444','size'=>10])->save(Yii::getAlias("@webroot").'/images/card2.png', ['quality'=>100]);
+        Image::text('@webroot/images/card2.png', $d_eight, '@webroot/font/wryh.ttf', [85,190] ,['color'=>'444','size'=>10])->save(Yii::getAlias("@webroot").'/images/card2.png', ['quality'=>100]);
+        echo "success";
     }
 }
