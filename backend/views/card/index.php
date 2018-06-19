@@ -52,7 +52,7 @@ $this->params['breadcrumbs'][] = $this->title;
 </div>
 
 
-<script>
+<?php $this->beginBlock('scyy')?>
     var url = ['create'];
 
     $("#create").on('click',function () {
@@ -79,4 +79,5 @@ $this->params['breadcrumbs'][] = $this->title;
     })
 
 
-</script>
+<?php $this->endBlock() ?>
+<?php $this->registerJs($this->blocks['scyy']);
