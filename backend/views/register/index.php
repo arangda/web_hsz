@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel common\models\RegisterSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = '友好预约';
+$this->title = '提交预约';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="register-index">

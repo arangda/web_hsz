@@ -49,8 +49,8 @@ use common\models\Comment;
                                     ['label' => '栏目管理', 'icon' => 'circle-o','url' => ['/cat/index']],
                                     ['label' => '文章管理', 'icon' => 'circle-o', 'url' => ['/post/index']],
                                     ['label' => '管理员', 'icon' => 'circle-o','url' => ['/adminuser/index']],
-                                    ['label' => '友好预约', 'icon' => 'circle-o','url' => ['/register/index']],
-                                    ['label' => '生成预约卡', 'icon' => 'circle-o','url' => ['/card/index']],
+                                    ['label' => '提交管理', 'icon' => 'circle-o','url' => ['/register/index']],
+                                  //  ['label' => '生成预约卡', 'icon' => 'circle-o','url' => ['/card/index']],
 
                         ],
                     ],
