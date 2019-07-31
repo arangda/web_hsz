@@ -5,12 +5,12 @@ namespace common\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use common\models\cats;
+use common\models\Cats;
 
 /**
  * CatSearch represents the model behind the search form of `common\models\cats`.
  */
-class CatSearch extends cats
+class CatSearch extends Cats
 {
     /**
      * @inheritdoc
