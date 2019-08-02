@@ -49,7 +49,11 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute'=>'disease',
                 'contentOptions'=>['width'=>'100px']
             ],
-            'source',
+            
+            [
+                'attribute'=>'source',
+                'contentOptions'=>['width'=>'380px']
+            ],
             //'cdate',
             [
                 'attribute'=>'cdate',
