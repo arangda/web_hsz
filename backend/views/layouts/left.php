@@ -43,7 +43,7 @@ use common\models\Comment;
                                 'icon' => 'circle-o',
                                 'url' => '#',
                                 'items' => [
-                                    ['label' => '权限管理','icon' => 'circle-o', 'url' => ['/admin']],
+                                    //['label' => '权限管理','icon' => 'circle-o', 'url' => ['/admin']],
                                     ['label' => '评论管理','icon' => 'circle-o', 'url' => ['/comment/index']],
                                     ['label' => '用户管理', 'icon' => 'circle-o','url' => ['/user/index']],
                                     ['label' => '栏目管理', 'icon' => 'circle-o','url' => ['/cat/index']],

@@ -73,7 +73,7 @@ class RegisterController extends ActiveController
         }
 
         //保存同时邮件发送给需要的人以便提醒
-        $users= ['273890638@qq.com'];
+        $users= ['273890638@qq.com','767797545@qq.com','276662319@qq.com'];
         $messages = [];
         foreach ($users as $user)
         {
