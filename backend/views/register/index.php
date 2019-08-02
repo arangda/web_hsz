@@ -52,7 +52,7 @@ $this->params['breadcrumbs'][] = $this->title;
             
             [
                 'attribute'=>'source',
-                'contentOptions'=>['width'=>'380px']
+                'contentOptions'=>['width'=>'380']
             ],
             //'cdate',
             [
