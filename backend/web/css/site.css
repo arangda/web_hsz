@@ -135,3 +135,6 @@ a.desc:after {
 #d_four{width:175px;height:26px;float:left;}
 #d_eight{width:260px;}
 #create{width:120px;margin-left:100px;}
+
+
+.register-index .source{max-width:380px;overflow:hidden;}
