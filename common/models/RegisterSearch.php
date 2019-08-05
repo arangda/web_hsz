@@ -41,7 +41,7 @@ class RegisterSearch extends Register
      */
     public function search($params)
     {
-        $query = Register::find();
+        $query = Register::find()->orderBy('id DESC');
 
         // add conditions that should always apply here
 
