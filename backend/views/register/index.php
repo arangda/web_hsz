@@ -10,6 +10,7 @@ use yii\grid\GridView;
 $this->title = '提交预约';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+
 <div class="register-index">
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -54,11 +55,33 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute'=>'source',
                 'contentOptions'=>['width'=>'380','class'=>'source']
             ],
-            //'cdate',
             [
-                'attribute'=>'cdate',
-                'contentOptions'=>['width'=>'180px']
+                'attribute' => 'huifang',
+                'contentOptions'=>['width'=>'80','class'=>'source'],
+                'value' => function($model){
+                    return Html::a($model->huif,"#",[
+                        "tabindex" => "0",
+                        //"class"=>"btn btn-small btn-default",
+                        "role" => "button",
+                        "data-toggle"=>"popover",
+                        "data-trigger"=>"focus",
+                        //"title"=>"Dismissible popover", 
+                        "data-placement"=>"left",
+                        "data-content"=>$model->huifang
+                    ]);
+                },
+                'format'=>'raw'
             ],
+            [
+                'attribute'=>'daozhen',
+                'contentOptions'=>['width'=>'80'],
+                'value' =>'dao'
+            ],
+            //'cdate',
+            //[
+            //    'attribute'=>'cdate',
+            //    'contentOptions'=>['width'=>'180px']
+            //],
             //'rdate',
             [
                 'attribute'=>'rdate',
@@ -68,3 +91,9 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]); ?>
 </div>
+<?php $this->beginBlock('scyy')?>
+    $(function() { 
+        $("[data-toggle='popover']").popover(); 
+    });
+<?php $this->endBlock() ?>
+<?php $this->registerJs($this->blocks['scyy']);

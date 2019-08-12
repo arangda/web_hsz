@@ -24,12 +24,22 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'source')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'huifang')->textarea(['rows'=>6]) ?>
+    <?php
+    $daos = [
+        0 => '未到诊',
+        1 => '已到诊'
+    ]
+    ?>
+
+    <?= $form->field($model,'daozhen')->dropDownList($daos) ?>
+
     <?= $form->field($model, 'cdate')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'rdate')->textInput(['maxlength' => true]) ?>
 
     <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton('保存', ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

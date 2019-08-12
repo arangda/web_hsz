@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model common\models\Register */
 
 $this->title = $model->name;
-$this->params['breadcrumbs'][] = ['label' => '友好预约', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => '预约', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="register-view">
@@ -35,6 +35,12 @@ $this->params['breadcrumbs'][] = $this->title;
             'age',
             'disease',
             'source',
+            'huifang',
+            //'daozhen',
+            [
+                'attribute'=>'daozhen',
+                'value'=>$model->getDao(),
+            ],
             'cdate',
             'rdate',
         ],
