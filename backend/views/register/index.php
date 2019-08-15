@@ -11,8 +11,8 @@ $this->title = '提交预约';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
-<div class="register-index">
-
+<div class="register-index" style="overflow-x:scroll;">
+ 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
 
@@ -87,9 +87,12 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute'=>'rdate',
                 'contentOptions'=>['width'=>'180px']
             ],
-            ['class' => 'yii\grid\ActionColumn'],
+            ['class' => 'yii\grid\ActionColumn']
+  
         ],
+        
     ]); ?>
+
 </div>
 <?php $this->beginBlock('scyy')?>
     $(function() { 
